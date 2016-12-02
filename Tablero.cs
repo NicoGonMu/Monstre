@@ -44,12 +44,21 @@ namespace Monstre
 
         public void clickInTablero(int x, int y, Common.eTipoCasilla type)
         {
+            //OSCAR RELLENA ESTO PLZ :P
             switch (type)
             {
                 case Common.eTipoCasilla.Agente:
+
+                    break;
                 case Common.eTipoCasilla.Monstruo:
+
+                    break;
                 case Common.eTipoCasilla.Precipicio:
+
+                    break;
                 case Common.eTipoCasilla.Tesoro:
+
+                    break;
                 default: break;
             }                        
         }
