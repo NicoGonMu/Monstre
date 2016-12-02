@@ -1,0 +1,6 @@
+C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\robotSI\Robot\bin\Debug\Robot.exe.config
+C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\robotSI\Robot\obj\Debug\Robot.csprojResolveAssemblyReference.cache
+C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\robotSI\Robot\obj\Debug\MainWindow.g.cs
+C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\robotSI\Robot\obj\Debug\App.g.cs
+C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\robotSI\Robot\obj\Debug\Robot_MarkupCompile.cache
+C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\robotSI\Robot\obj\Debug\Robot_MarkupCompile.lref

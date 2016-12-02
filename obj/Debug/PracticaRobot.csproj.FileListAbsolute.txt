@@ -1,0 +1,17 @@
+C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\robotSI\Robot\obj\Debug\MainWindow.g.cs
+C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\robotSI\Robot\obj\Debug\App.g.cs
+C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\robotSI\Robot\bin\Debug\PracticaRobot.exe.config
+C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\robotSI\Robot\obj\Debug\PracticaRobot_MarkupCompile.cache
+C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\robotSI\Robot\obj\Debug\PracticaRobot_MarkupCompile.lref
+C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\robotSI\Robot\bin\Debug\PracticaRobot.exe
+C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\robotSI\Robot\bin\Debug\PracticaRobot.pdb
+C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\robotSI\Robot\obj\Debug\MainWindow.baml
+C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\robotSI\Robot\obj\Debug\PracticaRobot.g.resources
+C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\robotSI\Robot\obj\Debug\PracticaRobot.Properties.Resources.resources
+C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\robotSI\Robot\obj\Debug\PracticaRobot.csproj.GenerateResource.Cache
+C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\robotSI\Robot\obj\Debug\PracticaRobot.exe
+C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\robotSI\Robot\obj\Debug\PracticaRobot.pdb
+C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\robotSI\Robot\obj\Debug\PracticaRobot.csprojResolveAssemblyReference.cache
+C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\monstre\Monstre\bin\Debug\PracticaRobot.exe.config
+C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\monstre\Monstre\obj\Debug\PracticaRobot.exe
+C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\monstre\Monstre\obj\Debug\PracticaRobot.pdb
