@@ -10,17 +10,23 @@
         <Canvas x:Name="TableroUI" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Margin="0,0,0,0" MouseDown="Click">
 
         </Canvas>
-        <Rectangle x:Name="Separator" Fill="#ffffff" Height="2" Stroke="Black" Width="100" Margin="0,210,10,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
-        <Button x:Name="Wall" Content="Wall" Width="100" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0" Click="selectWall"/>
-        <Button x:Name="Robot" Content="Robot" Width="100" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0, 70, 10 0" Click="selectRobot"/>
-        <Button x:Name="Remove" Content="Remove" Width="100" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0, 130, 10 0" Click="removeSelection"/>
-        <Button x:Name="Start" Content="Start" Width="100" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0, 250, 10 0" Click="startProcess"/>
-        <Button x:Name="Next" Content="Next" Width="100" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,310,10,0" Click="stepProcess"/>
-        <Button x:Name="inc" Content="+" Width="25" Height="25" HorizontalAlignment="Right" VerticalAlignment="Top" Click="incVel" Margin="0,371,9.6,0"/>
-        <Button x:Name="dec" Content="-" Width="25" Height="25" HorizontalAlignment="Right" VerticalAlignment="Top" Click="decVel" Margin="0,372,84.6,0"/>
-        <TextBlock x:Name="vel" Height="25" TextWrapping="Wrap" Margin="734,372,39.6,293.4"/>
-        <TextBlock x:Name="Sensores" Canvas.Left="707" TextWrapping="Wrap" Text="Sensores" Canvas.Top="409" Margin="704,412,9.6,253.4"/>
-        <TextBlock x:Name="Memoria" Canvas.Left="707" TextWrapping="Wrap" Text="Memoria" Canvas.Top="409" Margin="704,542,9.6,123.4"/>
+        <Rectangle x:Name="Separator" Fill="#ffffff" Height="2" Stroke="Black" Width="100" Margin="0,516,9.6,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+        <Button x:Name="Treasure" Content="Treasure" Width="100" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,70,10,0" Click="clickOnTreasure"/>
+        <Button x:Name="Agent" Content="Agent" Width="100" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0, 10, 10 0" Click="clickOnAgent"/>
+        <Button x:Name="Monster" Content="Monster" Width="100" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0, 130, 10 0" Click="clickOnMonster"/>
+        <Button x:Name="Cliff" Content="Cliff" Width="100" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,190,9.6,0" Click="clickOnCliff"/>
+        <Button x:Name="Copy" Content="Remove" Width="100" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,250,9.6,0" Click="removeSelection"/>
+        <Button x:Name="Start" Content="Start" Width="100" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,345,9.6,0" Click="startProcess"/>
+        <Button x:Name="Next" Content="Next" Width="100" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,405,9.6,0" Click="stepProcess"/>
+        <Button x:Name="inc" Content="+" Width="25" Height="25" HorizontalAlignment="Right" VerticalAlignment="Top" Click="incVel" Margin="0,466,9.6,0"/>
+        <Button x:Name="dec" Content="-" Width="25" Height="25" HorizontalAlignment="Right" VerticalAlignment="Top" Click="decVel" Margin="0,467,84.6,0"/>
+        <TextBlock x:Name="vel" Height="25" TextWrapping="Wrap" Margin="734,467,39.6,198.4"/>
+        <Rectangle x:Name="Separator2" Fill="#ffffff" Height="2" Stroke="Black" Width="100" Margin="0,321,9.6,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+        <TextBlock x:Name="changeSizeText" Text="Change board size" Height="25" TextWrapping="Wrap" Margin="704,544,9.6,121.4"/>
+        <TextBox x:Name="changeSizeBox" Height="23" Canvas.Left="707" TextWrapping="Wrap" Text="18" Canvas.Top="548" Margin="704,574,19.6,93.4"/>
+        <Button x:Name="change_Size" Content="Change size" Width="100" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,614,9.6,0" Click="changeSize"/>
+
+
     </Grid>
 
 </Window>

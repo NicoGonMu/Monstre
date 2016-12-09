@@ -55,7 +55,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Robot.cs" />
+    <Compile Include="Agent.cs" />
+    <Compile Include="Common.cs" />
+    <Compile Include="Field.cs" />
+    <Compile Include="Percepcion.cs" />
     <Compile Include="Tablero.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -118,6 +121,18 @@
     <Resource Include="Textures\Sredarrow.png" />
     <Resource Include="Textures\Wgreenarrow.png" />
     <Resource Include="Textures\Wredarrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Textures\rift.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Textures\devil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Textures\monster2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Textures\treasure2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

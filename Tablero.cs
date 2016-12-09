@@ -44,23 +44,29 @@ namespace Monstre
 
         public void clickInTablero(int x, int y, Common.eTipoCasilla type)
         {
-            //OSCAR RELLENA ESTO PLZ :P
             switch (type)
             {
                 case Common.eTipoCasilla.Agente:
-
+                    setCell(x, y, type);
                     break;
                 case Common.eTipoCasilla.Monstruo:
-
+                    setCell(x, y, type);
                     break;
                 case Common.eTipoCasilla.Precipicio:
-
+                    setCell(x, y, type);
                     break;
                 case Common.eTipoCasilla.Tesoro:
-
+                    setCell(x, y, type);
+                    break;
+                case Common.eTipoCasilla.Suelo:
+                    removeCell(x, y);
                     break;
                 default: break;
             }                        
+        }
+
+        public void removeCell(int x, int y) {
+            setCell(x, y, Common.eTipoCasilla.Suelo);
         }
 
         public void setCell(int x, int y, Common.eTipoCasilla type)

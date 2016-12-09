@@ -12,3 +12,17 @@ C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\monstre\Monstre\ob
 C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\monstre\Monstre\obj\Debug\Monstre.csproj.GenerateResource.Cache
 C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\monstre\Monstre\obj\Debug\Monstre.exe
 C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\monstre\Monstre\obj\Debug\Monstre.pdb
+C:\Users\Oscar\Documents\GitHub\Monstre\bin\Debug\Monstre.exe.config
+C:\Users\Oscar\Documents\GitHub\Monstre\obj\Debug\Monstre.exe
+C:\Users\Oscar\Documents\GitHub\Monstre\obj\Debug\Monstre.pdb
+C:\Users\Oscar\Documents\GitHub\Monstre\obj\Debug\Monstre.csprojResolveAssemblyReference.cache
+C:\Users\Oscar\Documents\GitHub\Monstre\obj\Debug\MainWindow.g.cs
+C:\Users\Oscar\Documents\GitHub\Monstre\obj\Debug\App.g.cs
+C:\Users\Oscar\Documents\GitHub\Monstre\obj\Debug\Monstre_MarkupCompile.cache
+C:\Users\Oscar\Documents\GitHub\Monstre\obj\Debug\Monstre_MarkupCompile.lref
+C:\Users\Oscar\Documents\GitHub\Monstre\bin\Debug\Monstre.exe
+C:\Users\Oscar\Documents\GitHub\Monstre\bin\Debug\Monstre.pdb
+C:\Users\Oscar\Documents\GitHub\Monstre\obj\Debug\MainWindow.baml
+C:\Users\Oscar\Documents\GitHub\Monstre\obj\Debug\Monstre.g.resources
+C:\Users\Oscar\Documents\GitHub\Monstre\obj\Debug\Monstre.Properties.Resources.resources
+C:\Users\Oscar\Documents\GitHub\Monstre\obj\Debug\Monstre.csproj.GenerateResource.Cache

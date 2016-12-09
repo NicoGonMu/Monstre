@@ -8,22 +8,23 @@ namespace Monstre
 {
     class Field
     {
-        public List<Common.eTipoCasilla> entidades { get; set; }
+        public Common.eTipoCasilla entidades { get; set; }
         public Percepcion percepcion { get; set; }      
         
         public Field()
         {
             percepcion = new Percepcion();
+            Set(Common.eTipoCasilla.Suelo);
         }
 
         public void Set(Common.eTipoCasilla type)
         {
-            entidades.Add(type);
+            entidades = type;
         }
 
-        public void Remove(Common.eTipoCasilla type)
+        public void Remove()
         {
-            entidades.Remove(type);
+            Set(Common.eTipoCasilla.Suelo);
         }
 
         public void Set(char c)

@@ -27,7 +27,7 @@ namespace Monstre
 
         Tablero tablero;
         List<Agent> agentList = new List<Agent>();
-        Common.eTipoCasilla type = Common.eTipoCasilla.Suelo;
+        Common.eTipoCasilla selection = Common.eTipoCasilla.Suelo;
         int lastAgent = 2;
         int velocitat = 200;
         bool paused = true;
@@ -48,22 +48,30 @@ namespace Monstre
 
         void paint() {
             TableroUI.Children.Clear();
-            double size =  (TableroUI.ActualHeight < TableroUI.ActualWidth - 100) ? TableroUI.ActualHeight / tablero.Length : (TableroUI.ActualWidth - 100) / tablero.Length;
+            double size = (TableroUI.ActualHeight < TableroUI.ActualWidth - 100) ? TableroUI.ActualHeight / tablero.Length : (TableroUI.ActualWidth - 100) / tablero.Length;
             for (int i = 0; i < tablero.Length; i++) {
                 for (int j = 0; j < tablero.Length; j++) {
                     Image image = new Image();
-                    int cell = tablero.getCell(i, j);
-                    if (cell == 0) {
-                        var uri = new Uri("pack://application:,,,/Textures/floor.png");
-                        image.Source = new BitmapImage(uri);
-                    }
-                    else if (cell == 1) {
-                        var uri = new Uri("pack://application:,,,/Textures/wall.png");
-                        image.Source = new BitmapImage(uri);
-                    }
-                    else if (cell == 2) {
-                        var uri = new Uri("pack://application:,,,/Textures/floor.png");
-                        image.Source = new BitmapImage(uri);
+                    Field cell = tablero.getCell(i, j);
+                    paintFloor(i, j, size);
+                    switch (cell.entidades) {
+                        case Common.eTipoCasilla.Agente:
+                            var uriR = new Uri("pack://application:,,,/Textures/Nrobot.png");
+                            image.Source = new BitmapImage(uriR);
+                            break;
+                        case Common.eTipoCasilla.Monstruo:
+                            var uriM = new Uri("pack://application:,,,/Textures/devil.png");
+                            image.Source = new BitmapImage(uriM);
+                            break;
+                        case Common.eTipoCasilla.Precipicio:
+                            var uriRi = new Uri("pack://application:,,,/Textures/rift.png");
+                            image.Source = new BitmapImage(uriRi);
+                            break;
+                        case Common.eTipoCasilla.Tesoro:
+                            var uriT = new Uri("pack://application:,,,/Textures/treasure2.png");
+                            image.Source = new BitmapImage(uriT);
+                            break;
+                        default: break;
                     }
                     image.Width = size;
                     image.Height = image.Width;
@@ -71,135 +79,22 @@ namespace Monstre
                     TableroUI.Children.Add(image);
                 }
             }
-            foreach (Agent r in agentList) {
 
-                var uri = new Uri("pack://application:,,,/Textures/"+r.direccio.ToString() + "robot.png");
-                Image image = new Image();
-                image.Source = new BitmapImage(uri);
-                image.Width = size;
-                image.Height = image.Width;
-                image.Margin = new Thickness(image.Width * r.X, image.Height * r.Y, image.Width * (r.X + 1), image.Height * (r.Y + 1));
-                TableroUI.Children.Add(image);
-            }
+            //paintInternState();
+        }
 
-            paintInternState();
+        void paintFloor(int i, int j, double size) {
+            Image image = new Image();
+            var uriF = new Uri("pack://application:,,,/Textures/floor.png");
+            image.Source = new BitmapImage(uriF);
+            image.Width = size;
+            image.Height = image.Width;
+            image.Margin = new Thickness(image.Width * i, image.Height * j, image.Width * (i + 1), image.Height * (j + 1));
+            TableroUI.Children.Add(image);
         }
 
         void paintInternState() {
-            if (agentList.Count != 0) {
-                Agent r = agentList[0];
-                int N = (int)r.direccio;
-                int W = ((int)r.direccio + 3) % 4;
-                int E = ((int)r.direccio + 1) % 4;
-                int S = ((int)r.direccio + 2) % 4;
-                Image image = new Image();
-                if (r.Sensors[N] == 0) {
-                    var uri = new Uri("pack://application:,,,/Textures/Ngreenarrow.png");
-                    image.Source = new BitmapImage(uri);
-                } else {
-                    var uri = new Uri("pack://application:,,,/Textures/Nredarrow.png");
-                    image.Source = new BitmapImage(uri);
-                }
-                image.Width = 30;
-                image.Height = 30;
-                image.Margin = new Thickness(730, 440, 760, 470);
-                TableroUI.Children.Add(image);
-
-                image = new Image();
-                if (r.Sensors[S] == 0) {
-                    var uri = new Uri("pack://application:,,,/Textures/Sgreenarrow.png");
-                    image.Source = new BitmapImage(uri);
-                } else {
-                    var uri = new Uri("pack://application:,,,/Textures/Sredarrow.png");
-                    image.Source = new BitmapImage(uri);
-                }
-                image.Width = 30;
-                image.Height = 30;
-                image.Margin = new Thickness(730, 500, 760, 530);
-                TableroUI.Children.Add(image);
-
-                image = new Image();
-                if (r.Sensors[E] == 0) {
-                    var uri = new Uri("pack://application:,,,/Textures/Egreenarrow.png");
-                    image.Source = new BitmapImage(uri);
-                } else {
-                    var uri = new Uri("pack://application:,,,/Textures/Eredarrow.png");
-                    image.Source = new BitmapImage(uri);
-                }
-                image.Width = 30;
-                image.Height = 30;
-                image.Margin = new Thickness(760, 470, 790, 500);
-                TableroUI.Children.Add(image);
-
-                image = new Image();
-                if (r.Sensors[W] == 0) {
-                    var uri = new Uri("pack://application:,,,/Textures/Wgreenarrow.png");
-                    image.Source = new BitmapImage(uri);
-                } else {
-                    var uri = new Uri("pack://application:,,,/Textures/Wredarrow.png");
-                    image.Source = new BitmapImage(uri);
-                }
-                image.Width = 30;
-                image.Height = 30;
-                image.Margin = new Thickness(700, 470, 730, 500);
-                TableroUI.Children.Add(image);
-
-                N = (int)r.direccioAnt;
-                W = ((int)r.direccioAnt + 3) % 4;
-                E = ((int)r.direccioAnt + 1) % 4;
-                S = ((int)r.direccioAnt + 2) % 4;
-                image = new Image();
-                if (r.Memoria[N] == 0) {
-                    var uri = new Uri("pack://application:,,,/Textures/Ngreenarrow.png");
-                    image.Source = new BitmapImage(uri);
-                } else {
-                    var uri = new Uri("pack://application:,,,/Textures/Nredarrow.png");
-                    image.Source = new BitmapImage(uri);
-                }
-                image.Width = 30;
-                image.Height = 30;
-                image.Margin = new Thickness(730, 570, 760, 600);
-                TableroUI.Children.Add(image);
-
-                image = new Image();
-                if (r.Memoria[S] == 0) {
-                    var uri = new Uri("pack://application:,,,/Textures/Sgreenarrow.png");
-                    image.Source = new BitmapImage(uri);
-                } else {
-                    var uri = new Uri("pack://application:,,,/Textures/Sredarrow.png");
-                    image.Source = new BitmapImage(uri);
-                }
-                image.Width = 30;
-                image.Height = 30;
-                image.Margin = new Thickness(730, 630, 760, 660);
-                TableroUI.Children.Add(image);
-
-                image = new Image();
-                if (r.Memoria[E] == 0) {
-                    var uri = new Uri("pack://application:,,,/Textures/Egreenarrow.png");
-                    image.Source = new BitmapImage(uri);
-                } else {
-                    var uri = new Uri("pack://application:,,,/Textures/Eredarrow.png");
-                    image.Source = new BitmapImage(uri);
-                }
-                image.Width = 30;
-                image.Height = 30;
-                image.Margin = new Thickness(760, 600, 790, 630);
-                TableroUI.Children.Add(image);
-
-                image = new Image();
-                if (r.Memoria[W] == 0) {
-                    var uri = new Uri("pack://application:,,,/Textures/Wgreenarrow.png");
-                    image.Source = new BitmapImage(uri);
-                } else {
-                    var uri = new Uri("pack://application:,,,/Textures/Wredarrow.png");
-                    image.Source = new BitmapImage(uri);
-                }
-                image.Width = 30;
-                image.Height = 30;
-                image.Margin = new Thickness(700, 600, 730, 630);
-                TableroUI.Children.Add(image);
-            }
+            
         }
 
         void Click(object sender, MouseEventArgs e)
@@ -209,136 +104,99 @@ namespace Monstre
 
             int x = (int)(point.X / size);
             int y = (int)(point.Y / size);
-            bool occupied = tablero.clickInTablero(x, y, type);
-            if (type >= 2) { handleRobotList(x, y, occupied); }
+            tablero.clickInTablero(x, y, selection);
+            if (selection == Common.eTipoCasilla.Agente) {
+                agentList.Add(new Agent(x, y, lastAgent, tablero.Length, ref tablero));
+            }
             paint();
         }
 
-        void selectWall(object sender, RoutedEventArgs e)
-        {
-            if (type == 1)
-            {
-                Wall.Background = Brushes.LightGray;
-                type = 0;
-            }
-            else {
-                Wall.Background = Brushes.Gray;
-                Robot.Background = Brushes.LightGray;
-                Remove.Background = Brushes.LightGray;
-                type = 1;
-            }
+        void clickOnAgent(object sender, RoutedEventArgs e) {
+            selection = Common.eTipoCasilla.Agente;
+            Agent.Background = Brushes.Gray;
+            Treasure.Background = Brushes.LightGray;
+            Monster.Background = Brushes.LightGray;
+            Cliff.Background = Brushes.LightGray;
         }
 
-        void selectRobot(object sender, RoutedEventArgs e)
-        {
-            if (type >= 2)
-            {
-                Robot.Background = Brushes.LightGray;
-                type = 0;
-            }
-            else {
-                Robot.Background = Brushes.Gray;
-                Wall.Background = Brushes.LightGray;
-                Remove.Background = Brushes.LightGray;
-                type = lastAgent;
-                lastAgent += 1;
-            }
+        void clickOnTreasure(object sender, RoutedEventArgs e) {
+            selection = Common.eTipoCasilla.Tesoro;
+            Agent.Background = Brushes.LightGray;
+            Treasure.Background = Brushes.Gray;
+            Monster.Background = Brushes.LightGray;
+            Cliff.Background = Brushes.LightGray;
+        }
+
+        void clickOnMonster(object sender, RoutedEventArgs e) {
+            selection = Common.eTipoCasilla.Monstruo;
+            Agent.Background = Brushes.LightGray;
+            Treasure.Background = Brushes.LightGray;
+            Monster.Background = Brushes.Gray;
+            Cliff.Background = Brushes.LightGray;
+        }
+
+        void clickOnCliff(object sender, RoutedEventArgs e) {
+            selection = Common.eTipoCasilla.Precipicio;
+            Agent.Background = Brushes.LightGray;
+            Treasure.Background = Brushes.LightGray;
+            Monster.Background = Brushes.LightGray;
+            Cliff.Background = Brushes.Gray;
+        }
+
+        void removeSelection(object sender, RoutedEventArgs e) {
+            selection = Common.eTipoCasilla.Suelo;
+            Agent.Background = Brushes.LightGray;
+            Treasure.Background = Brushes.LightGray;
+            Monster.Background = Brushes.LightGray;
+            Cliff.Background = Brushes.LightGray;
         }
 
         void decVel(object sender, RoutedEventArgs e)
         {
-            if (velocitat < 600) velocitat += 100;
-            vel.Text = 7 - velocitat / 100 + "";
+           
         }
 
 
         void incVel(object sender, RoutedEventArgs e)
         {
-            if (velocitat > 100) velocitat -= 100;
-            vel.Text = 7 - velocitat / 100 + "";
+            
         }
 
 
         void startProcess(object sender, RoutedEventArgs e)
         {
-            if (paused)
-            {
-                Start.Content = "Pause";
-                paused = false;
-                if (agentList.Count == 0)
-                {
-                    return;
-                }
-
-                bg.RunWorkerAsync(0);
-            }
-            else {
-                paused = true;
-                Start.Content = "Start";
-            }
+            
         }
 
         void stepProcess(object sender, RoutedEventArgs e)
         {
-            if (agentList.Count == 0)
-            {
-                return;
-            }
+            agentList.First().move(tablero);
+        }
 
-            foreach (Agent r in agentList)
-            {
-                r.move(tablero);
+        
+        void changeSize(object sender, RoutedEventArgs e) {
+            try {
+                tablero = new Tablero(int.Parse(changeSizeBox.Text));
+            } catch (Exception) {
+                MessageBox.Show("Please, only numbers here. Thanks");
             }
-
+            
             paint();
         }
 
-        void removeSelection(object sender, RoutedEventArgs e)
-        {
-            type = 0;
-            Robot.Background = Brushes.LightGray;
-            Wall.Background = Brushes.LightGray;
-            Remove.Background = Brushes.LightGray;
-        }
-
-
         private void runAllRobots(object sender, DoWorkEventArgs e)
         {
-            while (!paused)
-            {
-                if (agentList.Count == 0)
-                {
-                    continue;
-                }
-
-                foreach (Agent r in agentList)
-                {
-                    r.move(tablero);
-
-                }
-
-                bg.ReportProgress(0);
-
-                Thread.Sleep(velocitat);
-            }
+            
         }
 
         private void asyncPaint(object sender, ProgressChangedEventArgs e)
         {
-            paint();
+          
         }
 
         private void handleRobotList(int x, int y, bool occupied)
         {
-            if (occupied)
-            {
-                agentList.Remove(new Agent(x, y, lastAgent, ref tablero));
-            }
-            else
-            {
-                agentList.Add(new Agent(x, y, lastAgent, ref tablero));
-                lastAgent++;
-            }
+            
         }
     }
 }
