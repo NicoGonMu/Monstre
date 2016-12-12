@@ -71,7 +71,8 @@ namespace Monstre
 
         public void setCell(int x, int y, Common.eTipoCasilla type)
         {
-            tablero[x, y].Set(type);
+            tablero[x, y].entidad = type;
+            expandPerceptions(x, y, type);
         }
 
         private void expandPerceptions(int x, int y, Common.eTipoCasilla type)
@@ -79,16 +80,16 @@ namespace Monstre
             switch (type)
             {                
                 case Common.eTipoCasilla.Monstruo:
-                    if (x < length) tablero[x + 1, y].Set('h');
-                    if (x > 0) tablero[x - 1, y].Set('h');
-                    if (y < length) tablero[x, y + 1].Set('h');
-                    if (y > 0) tablero[x, y - 1].Set('h');
+                    if (x < length) tablero[x + 1, y].percepcion.Add('h');
+                    if (x > 0) tablero[x - 1, y].percepcion.Add('h');
+                    if (y < length) tablero[x, y + 1].percepcion.Add('h');
+                    if (y > 0) tablero[x, y - 1].percepcion.Add('h');
                     break;
                 case Common.eTipoCasilla.Precipicio:
-                    if (x < length) tablero[x + 1, y].Set('b');
-                    if (x > 0) tablero[x - 1, y].Set('b');
-                    if (y < length) tablero[x, y + 1].Set('b');
-                    if (y > 0) tablero[x, y - 1].Set('b');
+                    if (x < length) tablero[x + 1, y].percepcion.Add('b');
+                    if (x > 0) tablero[x - 1, y].percepcion.Add('b');
+                    if (y < length) tablero[x, y + 1].percepcion.Add('b');
+                    if (y > 0) tablero[x, y - 1].percepcion.Add('b');
                     break;
                 default: break;
             }

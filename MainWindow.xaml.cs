@@ -27,8 +27,7 @@ namespace Monstre
 
         Tablero tablero;
         List<Agent> agentList = new List<Agent>();
-        Common.eTipoCasilla selection = Common.eTipoCasilla.Suelo;
-        int lastAgent = 2;
+        Common.eTipoCasilla selection = Common.eTipoCasilla.Suelo;        
         int velocitat = 200;
         bool paused = true;
 
@@ -46,15 +45,19 @@ namespace Monstre
             bg.WorkerReportsProgress = true;
         }
 
-        void paint() {
+        void paint()
+        {
             TableroUI.Children.Clear();
             double size = (TableroUI.ActualHeight < TableroUI.ActualWidth - 100) ? TableroUI.ActualHeight / tablero.Length : (TableroUI.ActualWidth - 100) / tablero.Length;
-            for (int i = 0; i < tablero.Length; i++) {
-                for (int j = 0; j < tablero.Length; j++) {
+            for (int i = 0; i < tablero.Length; i++)
+            {
+                for (int j = 0; j < tablero.Length; j++)
+                {
                     Image image = new Image();
                     Field cell = tablero.getCell(i, j);
                     paintFloor(i, j, size);
-                    switch (cell.entidades) {
+                    switch (cell.entidad)
+                    {
                         case Common.eTipoCasilla.Agente:
                             var uriR = new Uri("pack://application:,,,/Textures/Nrobot.png");
                             image.Source = new BitmapImage(uriR);
@@ -83,7 +86,8 @@ namespace Monstre
             //paintInternState();
         }
 
-        void paintFloor(int i, int j, double size) {
+        void paintFloor(int i, int j, double size)
+        {
             Image image = new Image();
             var uriF = new Uri("pack://application:,,,/Textures/floor.png");
             image.Source = new BitmapImage(uriF);
@@ -93,8 +97,9 @@ namespace Monstre
             TableroUI.Children.Add(image);
         }
 
-        void paintInternState() {
-            
+        void paintInternState()
+        {
+
         }
 
         void Click(object sender, MouseEventArgs e)
@@ -105,13 +110,15 @@ namespace Monstre
             int x = (int)(point.X / size);
             int y = (int)(point.Y / size);
             tablero.clickInTablero(x, y, selection);
-            if (selection == Common.eTipoCasilla.Agente) {
-                agentList.Add(new Agent(x, y, lastAgent, tablero.Length, ref tablero));
+            if (selection == Common.eTipoCasilla.Agente)
+            {
+                agentList.Add(new Agent(x, y, tablero.Length, ref tablero));
             }
             paint();
         }
 
-        void clickOnAgent(object sender, RoutedEventArgs e) {
+        void clickOnAgent(object sender, RoutedEventArgs e)
+        {
             selection = Common.eTipoCasilla.Agente;
             Agent.Background = Brushes.Gray;
             Treasure.Background = Brushes.LightGray;
@@ -119,7 +126,8 @@ namespace Monstre
             Cliff.Background = Brushes.LightGray;
         }
 
-        void clickOnTreasure(object sender, RoutedEventArgs e) {
+        void clickOnTreasure(object sender, RoutedEventArgs e)
+        {
             selection = Common.eTipoCasilla.Tesoro;
             Agent.Background = Brushes.LightGray;
             Treasure.Background = Brushes.Gray;
@@ -127,7 +135,8 @@ namespace Monstre
             Cliff.Background = Brushes.LightGray;
         }
 
-        void clickOnMonster(object sender, RoutedEventArgs e) {
+        void clickOnMonster(object sender, RoutedEventArgs e)
+        {
             selection = Common.eTipoCasilla.Monstruo;
             Agent.Background = Brushes.LightGray;
             Treasure.Background = Brushes.LightGray;
@@ -135,7 +144,8 @@ namespace Monstre
             Cliff.Background = Brushes.LightGray;
         }
 
-        void clickOnCliff(object sender, RoutedEventArgs e) {
+        void clickOnCliff(object sender, RoutedEventArgs e)
+        {
             selection = Common.eTipoCasilla.Precipicio;
             Agent.Background = Brushes.LightGray;
             Treasure.Background = Brushes.LightGray;
@@ -143,7 +153,8 @@ namespace Monstre
             Cliff.Background = Brushes.Gray;
         }
 
-        void removeSelection(object sender, RoutedEventArgs e) {
+        void removeSelection(object sender, RoutedEventArgs e)
+        {
             selection = Common.eTipoCasilla.Suelo;
             Agent.Background = Brushes.LightGray;
             Treasure.Background = Brushes.LightGray;
@@ -153,50 +164,72 @@ namespace Monstre
 
         void decVel(object sender, RoutedEventArgs e)
         {
-           
+
         }
 
 
         void incVel(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
 
         void startProcess(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         void stepProcess(object sender, RoutedEventArgs e)
         {
-            agentList.First().move(tablero);
+            foreach (Agent a in agentList)
+            {
+                a.move(tablero);
+                moveCheck(a);
+            }
+
+            paint();
         }
 
-        
-        void changeSize(object sender, RoutedEventArgs e) {
-            try {
+
+        void changeSize(object sender, RoutedEventArgs e)
+        {
+            try
+            {
                 tablero = new Tablero(int.Parse(changeSizeBox.Text));
-            } catch (Exception) {
+            }
+            catch (Exception)
+            {
                 MessageBox.Show("Please, only numbers here. Thanks");
             }
-            
+
             paint();
         }
 
         private void runAllRobots(object sender, DoWorkEventArgs e)
         {
-            
+
         }
 
         private void asyncPaint(object sender, ProgressChangedEventArgs e)
         {
-          
+
         }
 
         private void handleRobotList(int x, int y, bool occupied)
         {
-            
+
+        }
+
+        private void moveCheck(Agent a)
+        {
+            if (tablero.getCell(a.X, a.Y).entidad == Common.eTipoCasilla.Monstruo || tablero.getCell(a.X, a.Y).entidad == Common.eTipoCasilla.Precipicio)
+            {            
+                tablero.setCell(a.X, a.Y, Common.eTipoCasilla.Suelo);
+                agentList.Remove(a);
+                return;
+            }
+            tablero.setCell(a.X, a.Y, Common.eTipoCasilla.Agente);            
+            tablero.setCell(a.PreX, a.PreY, Common.eTipoCasilla.Suelo);
         }
     }
 }

@@ -1,7 +1,6 @@
 C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\monstre\Monstre\bin\Debug\Monstre.exe.config
 C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\monstre\Monstre\bin\Debug\Monstre.exe
 C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\monstre\Monstre\bin\Debug\Monstre.pdb
-C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\monstre\Monstre\obj\Debug\Monstre.csprojResolveAssemblyReference.cache
 C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\monstre\Monstre\obj\Debug\MainWindow.g.cs
 C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\monstre\Monstre\obj\Debug\App.g.cs
 C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\monstre\Monstre\obj\Debug\Monstre_MarkupCompile.cache
@@ -26,3 +25,4 @@ C:\Users\Oscar\Documents\GitHub\Monstre\obj\Debug\MainWindow.baml
 C:\Users\Oscar\Documents\GitHub\Monstre\obj\Debug\Monstre.g.resources
 C:\Users\Oscar\Documents\GitHub\Monstre\obj\Debug\Monstre.Properties.Resources.resources
 C:\Users\Oscar\Documents\GitHub\Monstre\obj\Debug\Monstre.csproj.GenerateResource.Cache
+C:\Users\Nico\Documents\Nico\UIB\Cuarto\Sistemas Inteligentes\monstre\Monstre\obj\Debug\Monstre.csprojResolveAssemblyReference.cache

@@ -5,11 +5,12 @@ namespace Monstre
     {
         public bool Hedor { get; set; }
         public bool Brisa { get; set; }
-        public bool Resplandor { get; set; }        
+        public bool Resplandor { get; set; }
+        public bool Seguro { get; set; }
 
         public Percepcion()
         {
-            Hedor = Brisa = Resplandor = false;
+            Hedor = Brisa = Resplandor = Seguro = false;
         }
 
         public void Add(char c)
